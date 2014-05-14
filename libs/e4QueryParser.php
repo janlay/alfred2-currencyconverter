@@ -126,7 +126,12 @@ class e4QueryParser
 				// Parse to currency
 				$this->to->setInput($this->parsed['to']);
 				if (!$this->to->parse())
-					$this->to = $this->from->isEqualOf($this->defaultTo) ? $this->defaultFrom : $this->defaultTo;
+				{
+					if ($this->from->isEqualOf($this->defaultFrom))
+						$this->to = $this->defaultTo;
+					else
+						$this->to = $this->defaultFrom;
+				}
 
 				// Parse amount
 				$this->amount = preg_replace('/(\d+)\.(?!\d+$)/', '$1', str_replace(',', '.', $this->parsed['amount'] ?: '1'))*1;

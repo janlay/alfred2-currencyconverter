@@ -22,7 +22,7 @@ foreach ($config['testList'] AS $i => $test)
 {
 	$errors = false;
 
-	$objQuery = new e4QueryParser($test['query'], $config['defaultFrom'], $config['defaultTo']);
+	$objQuery = new e4QueryParser(null, $test['query'], $config['defaultFrom'], $config['defaultTo']);
 	$objQuery->parse();
 
 	if ($objQuery->isValid() != $test['valid'])
