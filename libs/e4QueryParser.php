@@ -127,7 +127,7 @@ class e4QueryParser
 				$this->to->setInput($this->parsed['to']);
 				if (!$this->to->parse())
 				{
-					if ($this->from->isEqualOf($this->defaultFrom))
+					if (!$this->from->isEqualOf($this->defaultTo))
 						$this->to = $this->defaultTo;
 					else
 						$this->to = $this->defaultFrom;
