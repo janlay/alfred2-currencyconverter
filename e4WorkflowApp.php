@@ -66,10 +66,11 @@ class e4WorkflowApp
 	public function setName($name, $id)
 	{
 		$this->name = trim($name);
+        $alfredVersion = file_exists('/Applications/Alfred 3.app') ? 3 : 2;
 
 		$this->id = $id ?: strtolower(str_replace(' ', '', $this->name));
-	 	$this->cachePath = $_SERVER['HOME'].'/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow Data/'.$this->id.'/';
-	 	$this->configPath = $_SERVER['HOME'].'/Library/Application Support/Alfred 2/Workflow Data/'.$this->id.'/';
+	 	$this->cachePath = $_SERVER['HOME']."/Library/Caches/com.runningwithcrayons.Alfred-$alfredVersion/Workflow Data/".$this->id.'/';
+	 	$this->configPath = $_SERVER['HOME']."/Library/Application Support/Alfred $alfredVersion/Workflow Data/".$this->id.'/';
 
 	 	@mkdir($this->cachePath, 0777, true);
 	 	@mkdir($this->configPath, 0777, true);
