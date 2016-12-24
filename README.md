@@ -11,7 +11,7 @@ A simple Alfred 2 Currency Converter workflow's.
 Installation
 ----------------
 
-- Download [Currency Converter.alfredworkflow](https://github.com/inket/alfred2-currencyconverter/releases) extension.
+- Download [Currency Converter.alfredworkflow](https://github.com/janlay/alfred2-currencyconverter/releases) extension.
 - Double click the downloaded "Currency Converter.alfredworkflow" file to install.
 *Alfred 2 is required*
 
