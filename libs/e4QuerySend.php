@@ -60,9 +60,9 @@ class e4QuerySend
 			preg_match('/<div\s+id=["|\']?currency_converter_result["|\']?[^>]?>(.*)/', $response, $data) &&
 			preg_match('/^\s*(?<from>(?<fromAmount>[\d\.\,]+)\s*(?<fromCurrency>\w{3}))\s*=\s*(?<to>(?<toAmount>[\d\.\,]+)\s*(?<toCurrency>\w{3}))\s*$/', strip_tags($data[1]), $data))
 		{
-			$this->responseFromAmount = $data['fromAmount']*1;
+			$this->responseFromAmount = number_format(floatval($data['fromAmount']), 2);
 			$this->responseFromCurrency = $data['fromCurrency'];
-			$this->responseToAmount = $data['toAmount']*1;
+			$this->responseToAmount = number_format(floatval($data['toAmount']), 2);
 			$this->responseToCurrency = $data['toCurrency'];
 			return $this->valid = true;
 		}
